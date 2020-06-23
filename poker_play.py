@@ -30,7 +30,7 @@ cv2.waitKey(0)
 cnts = cv2.findContours(thresh.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 cnts = imutils.grab_contours(cnts)
 
-
+i =1
 for c in cnts:
     bb = cv2.boundingRect(c)
     
@@ -46,7 +46,8 @@ for c in cnts:
         cv2.imshow("card",card)
 
         #aqui podemos rodar o modelo e adicionar em uma lista de cartas da mão
-
+        cv2.imwrite('card'+str(i)+'.png',card)
+        i+=1
         cv2.waitKey(0)
 
 
@@ -67,7 +68,7 @@ cv2.waitKey(0)
 cnts_flop = cv2.findContours(thresh_flop.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 cnts_flop = imutils.grab_contours(cnts_flop)
 
-
+i=1
 for c in cnts_flop:
     bb = cv2.boundingRect(c)
     
@@ -83,7 +84,8 @@ for c in cnts_flop:
         cv2.imshow("card_flop",card_flop)
 
         #aqui podemos rodar o modelo e adicionar em uma lista de cartas da mão
-
+        cv2.imwrite('card_flop'+str(i)+'.png',card_flop)
+        i+=1
         cv2.waitKey(0)
 
 
